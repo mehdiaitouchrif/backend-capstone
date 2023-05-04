@@ -1,21 +1,9 @@
 from django.test import TestCase
-from .models import Menu, Booking
-from .serializers import MenuSerializer, BookingSerializer
+from restaurant.models import Menu
+from restaurant.serializers import MenuSerializer
 from rest_framework.test import APIClient
-from django.urls import reverse
 from rest_framework import status
 from django.contrib.auth.models import User
-
-class MenuTest(TestCase):
-    def test_get_item(self):
-        item = Menu.objects.create(title='IceCream', price=50, inventory=100)
-        self.assertEqual(item.__str__(), 'IceCream')
-
-
-class BookingTest(TestCase):
-    def test_get_item(self):
-        item = Booking.objects.create(name='Test', no_of_guests=5)
-        self.assertEqual(item.__str__(), 'Test')
 
 
 class MenuViewTest(TestCase):
